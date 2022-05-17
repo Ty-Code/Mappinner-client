@@ -6,15 +6,13 @@ const LocationsContext = createContext();
 export const LocationProvider = ({ children }) => {
   const { data: locations, setData: setLocations, isError, isLoading } = useFetch('/locations');
 
- 
   return (
     <LocationsContext.Provider
       value={{
         locations,
         setLocations,
         isError,
-        isLoading
-
+        isLoading,
       }}
     >
       {children}
