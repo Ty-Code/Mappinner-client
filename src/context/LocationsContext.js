@@ -4,7 +4,7 @@ import useFetch from '../hooks/useFetch';
 const LocationsContext = createContext();
 
 export const LocationProvider = ({ children }) => {
-  const { data: locations, setData: setLocations, isError, isLoading } = useFetch('/locations');
+  const { data: locations, setData: setLocations, isError, isLoading } = useFetch('https://mappinner-app.herokuapp.com/locations');
 
   return (
     <LocationsContext.Provider
