@@ -21,7 +21,7 @@ const PopupCreator = () => {
       lat: newPin.lat,
     };
     try {
-      const res = await axios.post('https://mappinner-app.herokuapp.com/locations', newLocation);
+      const res = await axios.post('/locations', newLocation);
       setLocations([...locations, res.data]);
       setNewPin(null);
     } catch (error) {
@@ -31,7 +31,7 @@ const PopupCreator = () => {
 
   const handleDelete = (id) => {
     try {
-      axios.delete(`https://mappinner-app.herokuapp.com/locations/${id}`);
+      axios.delete(`/locations/${id}`);
       setLocations(locations.filter((location) => location._id !== id));
     } catch (error) {
       console.log(error);
@@ -53,8 +53,8 @@ const PopupCreator = () => {
                 key={location._id}
               >
                 <div className="popup--card">
-                  <span className="popup--card-title">{location.title}</span>
-                  <span className="popup--card-desc">{location.description}</span>
+                  <span className='popup--card-title'>{location.title}</span>
+                  <span className='popup--card-desc'>{location.description}</span>
                   <button className="popup--btn" onClick={() => handleDelete(location._id)}>
                     Delete
                   </button>
